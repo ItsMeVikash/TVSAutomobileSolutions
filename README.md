@@ -56,10 +56,10 @@ If User provides wrong credentials then Snackbar will be displayed showing wrong
                   .show();
 ```
 ![Login Page]
-(https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login.png)
+(https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login.png?raw=true)
 
 ![Wrong Credentials]
-(https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login1.png)
+(https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login1.png?raw=true)
 
 The response that is returned in the form of JSON.First key is TABLE_DATA so to get the List for the specific key i created one new class with following code
 
