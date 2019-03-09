@@ -1,5 +1,9 @@
 # TVSAutomobileSolutions
 
+Download This App
+------------------
+[Download This App](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/TVS%20Automobile%20SOlutions.apk)
+
 This project consists of 4 Screens :-
 --------------------------------------
 1. [Login Page](#Login-Page),
@@ -162,6 +166,91 @@ public class ListViewAdapter extends BaseAdapter {
  ```
 
 ###Details-Page
+----------------
+This Page shows the details of the clicked staff members from previous page. 
+For clicking pic from Camera i have used [Dexter](https://github.com/Karumi/Dexter). Which is used for taking Runtime Permission. It's very simple to use 
+```
+Dexter.withActivity(this)
+                .withPermissions(Manifest.permission.CAMERA,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        if (report.areAllPermissionsGranted()) {
+
+                            if (type == MEDIA_TYPE_IMAGE) {
+                                // capture picture
+                                captureImage();
+                            } else {
+
+                            }
+
+                        } else if (report.isAnyPermissionPermanentlyDenied()) {
+                            showPermissionsAlert();
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).check();
+
+```
+ Details Page                                       |  After Capturing Photo
+:-----------------------------------------------:|:-----------------------------------------:
+![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/details.png?raw=true)                         |  ![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/details2.png?raw=true)
+
+According to the request for showing Datetime Stamp on captured image i have used WaterMark Library [AndroidWM](https://github.com/huangyz0918/AndroidWM). You can alternatively use the Canvas concept also but this library is really good and easy 
+```
+               WatermarkText watermarkText = new WatermarkText(dateTime)
+                        .setPositionX(0)
+                        .setPositionY(0)
+                        .setTextColor(Color.WHITE)
+                        .setTextFont(R.font.champagne)
+                        .setTextShadow(0.1f, 5, 5, Color.BLUE)
+                        .setTextAlpha(500)
+                        .setRotation(0)
+                        .setTextSize(20);
+                WatermarkBuilder
+                        .create(this, bitmap)
+                        .loadWatermarkText(watermarkText)
+                        .getWatermark()
+                        .setToImageView(imageView);
+```
 
 ###Graph-Page
+--------------
+Here i have implemeneted Pie Chart and Bar Graph. For this i have used WaterMark Library [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart). For using Bar Graph 
 
+```
+BarChart chart = (BarChart) findViewById(R.id.barchart);
+ XAxis xAxis = chart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        chart.getAxisRight().setEnabled(false);
+        xAxis.setSpaceBetweenLabels(0);
+        BarDataSet bardataset = new BarDataSet(salary, "Salary Of Employee");
+        xAxis.setLabelsToSkip(0);
+        xAxis.setTextSize(2);
+        chart.animateY(000);
+        BarData data = new BarData(name, bardataset);
+        bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
+        chart.setData(data);
+```
+Bar Chart                                        |  Pie Chart
+:-----------------------------------------------:|:-----------------------------------------:
+![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/bar.png?raw=true)                         |  ![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/pie.png?raw=true)
+
+For PieChart 
+```
+pieChart = (PieChart) findViewById(R.id.piechart);
+        pieChart.setUsePercentValues(false);
+        PieDataSet dataSet = new PieDataSet(yvalues, "Salary Of Employee");
+        PieData datas = new PieData(xVals, dataSet);
+        data.setValueFormatter(new DefaultValueFormatter(0));
+        pieChart.setData(datas);
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+```
+
+This is the short description for this whole project. If you find any difficulty You can contact me.#KeepCoding
+[Download This App](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/TVS%20Automobile%20SOlutions.apk)
