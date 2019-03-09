@@ -55,11 +55,7 @@ If User provides wrong credentials then Snackbar will be displayed showing wrong
                       .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ))
                   .show();
 ```
-![Login Page]
-(https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login.png?raw=true)
-
-![Wrong Credentials]
-(https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login1.png?raw=true)
+![Login Page](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login.png?raw=true)![Wrong Credentials](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login1.png?raw=true)
 
 The response that is returned in the form of JSON.First key is TABLE_DATA so to get the List for the specific key i created one new class with following code
 
