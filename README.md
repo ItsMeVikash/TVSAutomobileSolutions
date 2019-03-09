@@ -8,6 +8,7 @@ This project consists of 4 Screens :-
 4. [Graph Page](#Graph-Page),
 
 ###Login-Page
+--------------
 This Page consists of two edittext each wrapped inside textInputLayout to show error and hint. This is full SCreen Activity. We can manage full screen activity at runtime alseo by
 ```
  requestWindowFeature(Window.FEATURE_NO_TITLE);
