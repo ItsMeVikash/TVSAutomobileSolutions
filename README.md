@@ -55,11 +55,9 @@ If User provides wrong credentials then Snackbar will be displayed showing wrong
                       .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ))
                   .show();
 ```
-![Login Page]()
-![Wrong Credentials]()
-Login Page             |  Wrong Credentials
-:-------------------------:|:-------------------------:
-![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login.png?raw=true)  |  ![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login1.png?raw=true)
+Login Page                                       |  Wrong Credentials
+:-----------------------------------------------:|:-----------------------------------------:
+![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login.png?raw=true)                         |  ![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login1.png?raw=true)
 
 The response that is returned in the form of JSON.First key is TABLE_DATA so to get the List for the specific key i created one new class with following code
 
@@ -100,7 +98,68 @@ Finally i have created the ArrayList<GenericType> where i have stored the retuen
  
 ###List-Page
 -------------
+All returned JSON data returned is displayed in this Page using ListView. ListView Adapter is made for displaying the items to the list
+```
+public class ListViewAdapter extends BaseAdapter {
 
+    // Declare Variables
+
+    Context mContext;
+    LayoutInflater inflater;
+    private ArrayList<DataModel> arraylist;
+
+    public ListViewAdapter(Context context ) {
+        mContext = context;
+        inflater = LayoutInflater.from(mContext);
+        this.arraylist = new ArrayList<DataModel>();
+        this.arraylist.addAll(MainActivity.staffNameArrayList);
+    }
+
+    public class ViewHolder {
+        TextView name;
+    }
+
+    @Override
+    public int getCount() {
+        return MainActivity.staffNameArrayList.size();
+    }
+
+    @Override
+    public DataModel getItem(int position) {
+        return MainActivity.staffNameArrayList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+ }
+ ```
+ List Page                                       |  SearchView
+:-----------------------------------------------:|:-----------------------------------------:
+![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/list.png?raw=true)                         |  ![](https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/list2.png?raw=true)
+
+ SearchView is implemented in this activity to filter the text inside searchView.
+ ```
+  SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        final SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchView.clearFocus();
+                adapter.notifyDataSetChanged();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.filter(newText);
+                adapter.notifyDataSetChanged();
+                return false;
+            }
+        });
+ ```
 
 ###Details-Page
 
