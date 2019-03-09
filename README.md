@@ -42,8 +42,65 @@ Ion.with(context)
 });
 
 ```
+If User provides wrong credentials then Snackbar will be displayed showing wrong credentials using
+```
+ View parentLayout = findViewById(android.R.id.content);
+ Snackbar.make(parentLayout, "Your Credentials is wrong\n", Snackbar.LENGTH_LONG)
+                   .setAction("Try Again", new View.OnClickListener() {
+                      @Override
+                      public void onClick(View view) {
 
+                          }
+                        })
+                      .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ))
+                  .show();
+```
+![Login Page]
+(https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login.png)
+
+![Wrong Credentials]
+(https://github.com/ItsMeVikash/TVSAutomobileSolutions/blob/master/Screenshots/login1.png)
+
+The response that is returned in the form of JSON.First key is TABLE_DATA so to get the List for the specific key i created one new class with following code
+
+```
+public class TableDataResponse {
+
+    @SerializedName("TABLE_DATA")
+    @Expose
+    private String tABLEDATA;
+
+    public String getTABLEDATA() {
+        return tABLEDATA;
+    }
+
+    public void setTABLEDATA(String tABLEDATA) {
+        this.tABLEDATA = tABLEDATA;
+    }
+}
+```
+and to get Final List for data key i have created one new class
+```
+public class DataResponse {
+
+    @SerializedName("data")
+    @Expose
+    private List<List<String>> data = null;
+
+    public List<List<String>> getData() {
+        return data;
+    }
+
+    public void setData(List<List<String>> data) {
+        this.data = data;
+    }
+}
+```
+Finally i have created the ArrayList<GenericType> where i have stored the retuened data from RestAPi.which will be displayed in next List Page.
+ 
 ###List-Page
+-------------
+
 
 ###Details-Page
 
