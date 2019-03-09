@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TVS Automobile Solutions</string>
+    <!-- Strings related to login -->
+    <string name="prompt_username">username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="menu_search">Enter Name to Search</string>
+    <string name="search_hint">Search Staff</string>
+    <string name="details_page">Details</string>
+    <string name="login_page">SignIn</string>
+    <string name="barGraph_page">Pie/Bar Chart</string>
+    <string name="change_charts">Change Bar -> Pie</string>
+    <string name="change_chart">Change Pie -> Bar</string>
+    <string name="photo">Capture Photo</string>
+    <string name="logout">Logout</string>
+</resources>
